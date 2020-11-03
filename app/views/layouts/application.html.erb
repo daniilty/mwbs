@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Daniilty</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel='stylesheet' href='https://unpkg.com/emoji.css/dist/emoji.min.css'>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<header class="header">
+  <a href="<%=root_url%>" class="logo"><h2>daniilty</h2></a>
+  <a href="https://github.com/daniilty" class="github"><%= image_tag("github.svg")%></a>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+    <li><a href="<%= projects_url %>">Проекты</a></li>
+    <li><a href="<%= contacts_url %>">Контакты</a></li>
+  </ul>
+</header>
+  <body>
+    <%= yield %>
+  </body>
+</html>
