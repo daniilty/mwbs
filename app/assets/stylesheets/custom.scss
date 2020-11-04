@@ -22,6 +22,56 @@ box-shadow: -1px 2px 75px -13px rgba(0,0,0,0.21);
 	border-radius: 10px;
 	text-align: center;
 }
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1000px;
+}
+@keyframes zoom {
+  from {transform: scale(0.1)} 
+  to {transform: scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 70px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 100px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
 .doci h1 {
 	margin: 20px;
 }
@@ -36,14 +86,13 @@ img {
 	width: 100%;
 }
 #about {
+	background-color: #212121;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	display: flex;
 	border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 35px -2px rgba(0,0,0,0.35);
--moz-box-shadow: 0px 0px 35px -2px rgba(0,0,0,0.35);
-box-shadow: 0px 0px 35px -2px rgba(0,0,0,0.35);
+box-shadow: 0px 0px 35px -2px rgba(255,255,255,0.1);
 	margin-top: 20px;
 	max-width: 100vh;
 	margin-left: auto;
@@ -106,12 +155,11 @@ box-shadow: -1px 2px 75px -13px rgba(0,0,0,0.21);
 	margin: 2.5rem;
 	align-items: center;
 	justify-content: center;
-	background: white;
+	background-color: #212121;
 	padding: 1rem;
 	border-radius: 10px;
-	-webkit-box-shadow: -1px 2px 75px -13px rgba(0,0,0,0.21);
--moz-box-shadow: -1px 2px 75px -13px rgba(0,0,0,0.21);
-box-shadow: -1px 2px 75px -13px rgba(0,0,0,0.21);
+
+box-shadow: 0px 0px 35px -2px rgba(255,255,255,0.1);
 }
 .orders {
 	align-items: center;
@@ -295,6 +343,7 @@ box-shadow: -1px 2px 75px -13px rgba(0,0,0,0.21);
 	padding: 1.5rem 3rem;
 	letter-spacing: 1px;
 	margin-top: 10px;
+	width: 100%;
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 1.2rem;
@@ -310,8 +359,8 @@ box-shadow: -1px 2px 75px -13px rgba(253,164,135,0.21);
 	background-color: #7b5002;
 }
 html {
-	background-color: white;
-	color: black;
+	background-color: black;
+	color: white;
 }
 a 
 {
@@ -328,9 +377,9 @@ p {
 
 .header 
 {
-  -webkit-box-shadow: 0px 0px 35px -2px rgba(255,255,255,0.49);
--moz-box-shadow: 0px 0px 35px -2px rgba(255,255,255,0.49);
-box-shadow: 0px 0px 35px -2px rgba(255,255,255,0.49);
+  -webkit-box-shadow: 0px 0px 35px -2px rgba(253,164,135,0.49);
+-moz-box-shadow: 0px 0px 35px -2px rgba(253,164,135,0.49);
+box-shadow: 0px 0px 35px -2px rgba(253,164,135,0.49);
   background-color: #fda487;
   position: fixed;
   height: 90px;
@@ -344,7 +393,8 @@ box-shadow: 0px 0px 35px -2px rgba(255,255,255,0.49);
 .header .github img {
   position: fixed;
   top: 0;
-  left: 47%;
+  left: 50%;
+  margin-left: -30px;
 }
 .header img 
 {
@@ -424,6 +474,33 @@ box-shadow: 0px 0px 35px -2px rgba(0,0,0,0.49);
   width: 18px;
 }
 
+#aboutp {
+	background-color: #fda487;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	border-radius: 10px;
+box-shadow: 0px 0px 35px -2px rgba(253,164,135,0.4);
+	margin-top: 20px;
+	max-width: 100vh;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 2rem;
+	text-align: center;
+}
+#aboutp h1,h2 {
+	margin: 10px
+}
+#aboutp p {
+	font-size: 1.25rem;
+}
+#aboutp img {
+	border-radius: 10px;
+	-webkit-box-shadow: -1px 2px 75px -13px rgba(0,0,0,0.21);
+-moz-box-shadow: -1px 2px 75px -13px rgba(0,0,0,0.21);
+box-shadow: -1px 2px 75px -13px rgba(0,0,0,0.21);
+}
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
   background: rgb(240,240,240);
@@ -479,11 +556,9 @@ body {
   margin-bottom: 15px;
 }
 @media screen and (max-width: 1068px) {
-.header .github img {
-  position: fixed;
-  top: 0;
-  left: 40%;
-}
+	#aboutp p {
+		font-size: 1.1rem;
+	}
 	#about p {
 		font-size: 1.1rem;
 	}
@@ -541,11 +616,6 @@ body {
 }
 @media screen and (max-width: 470px) 
 {
-.header .github img {
-  position: fixed;
-  top: 0;
-  left: 37%;
-}
 	#d p {
 		font-size: 1.25rem;
 	}
@@ -555,11 +625,6 @@ body {
 
 }
 @media screen and (max-width: 868px) {
-.header .github img {
-  position: fixed;
-  top: 0;
-  left: 42%;
-}
 	#upperwr {
 		margin-top: 0px;
 	}
