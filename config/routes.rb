@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rest/first'
   get 'rices',to: 'rices#rs'
   get 'parser', to: 'parser#sinatra'
   root 'home#index'
