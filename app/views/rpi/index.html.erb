@@ -1,0 +1,73 @@
+<div id="about">
+<%= image_tag 'rpi.png', id: 'myImg' %>
+</div>
+<div id="about">
+  <h2><span class="ec ec-hammer-and-wrench"></span> Что я использовал для этого проекта</h2>
+  <p><b>Framework: </b>Ruby on Rails</p>
+  <p><b>Database: </b>Postgres</p>
+  <p><b>Deploy: </b>Local deploy with puma</p>
+  <p><b>Adapter: </b>Redis</p>
+  <p><b>Front: </b>CSS + JS</p>
+  <p><b>Job system: </b>Sidekiq</p>
+  <p><b>Screen: </b>Cheapest from Aliexpress</p>
+  <p><b>Case: </b>Also cheapest from Aliexpress</p>
+  <p><b>Hardware: </b>Rpi3b+</p>
+  <p><b>OS: </b>Raspbian lite</p>
+</div>
+<div id="aboutp">
+  <h1>Как заставить это работать</h1>
+</div>
+<div id="about">
+  <p>Для начала установим Redis, Postgres, RoR и Chromium на малину:</p>
+  <div class="code">
+  <p><b>$ </b>sudo apt install postgresql libpq-dev postgresql-client
+postgresql-client-common -y</p>
+  <p><b>$ </b>sudo systemctl enable postgresql</p>
+  <p><b>$ </b>sudo apt-get install redis-server</p>
+  <p><b>$ </b>git clone https://github.com/rbenv/rbenv.git ~/.rbenv</p>
+  <p><b>$ </b>echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc</p>
+  <p><b>$ </b>echo 'eval "$(rbenv init -)"' >> ~/.bashrc</p>
+  <p><b>$ </b>git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</p>
+  <p><b>$ </b>echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc</p>
+  <p><b>$ </b>git clone https://github.com/rbenv/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars</p>
+  <p><b>$ </b>exec $SHELL</p>
+  <p><b>$ </b>rbenv install 2.7.2</p>
+  <p><b>$ </b>rbenv global 2.7.2</p>
+  <p><b>$ </b>gem install bundler</p>
+  <p><b>$ </b>gem install rails</p>
+  </div>
+  <p> Далее нам остается налить себе чаю, ознакомиться с трудами Иммануила Канта и приступить уже наконец к самой интересной части.</p>
+</div>
+<div id="about">
+  <h2>Устанавливаем остатки</h2>
+  <div class="code">
+    <p><b>$ </b>sudo apt install xserver-xorg xserver-xorg-video-fbdev xinit pciutils xinput xfonts-100dpi xfonts-75dpi xfonts-scalable </p>
+    <p><b>$ </b>vim ~/.bash_profile</p>
+    <p><b>[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx</b><p>
+    <p><b>:wq</b><p>
+  </div>
+  <div class="code">
+    <p><b>$ </b>git clone https://github.com/daniilty/simple-clock.git</p>
+    <p><b>$ </b>cd simple-clock</p>
+    <p><b>$ </b>bundle install</p>
+    <p><b>$ </b>rails db:create</p>
+    <p><b>$ </b>rails db:migrate</p>
+    <p><b>$ </b>vim ~/.xinitrc</p>
+    <p><b>exec ~/simple-clock/script.sh </b></p>
+    <p><b>exec redis-server </b></p>
+    <p><b>exec cd ~/simple-clock && bundle exec sidekiq</b></p>
+    <p><b>exec cd ~/simple-clock && rails s </b></p>
+    <p><b>exec chromium -app=http://127.0.0.1:3000 </b></p>
+    <p><b>:wq </b></p>
+    <p><b>Alt + Shift + q</b></p>
+  </div>
+  <p>После релогина у нас откроется хромиум с нашими готовыми часами.</p>
+</div>
+<div id="aboutp">
+  <h1>Ссылки</h1>
+</div>
+<div id="about">
+  <a href="https://github.com/daniilty/simple-clock" class="blog-post_cta">github</a>
+  <a href="https://aliexpress.ru/item/4000210928261.html?spm=a2g0o.productlist.0.0.668715096aFL7x&algo_pvid=0d5290ac-d288-4bd2-88b0-c1a6bcecd4e8&algo_expid=0d5290ac-d288-4bd2-88b0-c1a6bcecd4e8-58&btsid=0b8b034116052586121906929e9f34&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_" class="blog-post_cta">screen</a>
+  <a href="https://aliexpress.ru/item/32965998024.html?spm=a2g0o.productlist.0.0.67c41f2e0sWHcB&algo_pvid=1610b381-da7c-4db9-b3a1-0f067a43df42&algo_expid=1610b381-da7c-4db9-b3a1-0f067a43df42-10&btsid=0b8b034116052585811576389e9f34&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_" class="blog-post_cta">Case</a>
+</div>

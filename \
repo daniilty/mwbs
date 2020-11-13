@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'rpi', to: 'rpi#index'
+  get 'rpi',to: 'rpi#index'
   get 'rest/first'
   get 'rices',to: 'rices#rs'
   get 'parser', to: 'parser#sinatra'
