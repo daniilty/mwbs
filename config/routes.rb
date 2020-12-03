@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'currency', to: 'currency#first'
   get 'rpi', to: 'rpi#index'
   get 'rest/first'
   get 'rices',to: 'rices#rs'
